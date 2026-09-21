@@ -6,7 +6,7 @@
 "modules": {
   "flights": false,
   "overview": false,
-  "itinerary": false,
+  "itinerary": true,
   "todo": true,
   "driving": false,
   "ledger": true
