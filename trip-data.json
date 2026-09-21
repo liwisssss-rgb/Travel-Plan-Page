@@ -85,8 +85,201 @@
     "heroTitle": "泰国 · 阿布扎比 · 欧洲之旅",
     "heroEyebrow": "THAILAND · UAE · EUROPE · 2026"
   },
-  "flightJourneys": [],
-  "flights": [],
+  "flightJourneys": [
+    {
+      "id": "journey-01",
+      "title": "南京 → 厦门 → 曼谷",
+      "date": "2026-09-24",
+      "segments": [
+        {
+          "flightNumber": "MF8550",
+          "airline": "厦门航空",
+          "from": "南京禄口 T1",
+          "to": "厦门高崎 T3",
+          "departTime": "18:30",
+          "arriveTime": "20:20",
+          "date": "2026-09-24",
+          "duration": "1h50m",
+          "cabin": "经济舱",
+          "passengers": [".ITONG", "LIQIANZHAO", "CUIB"]
+        },
+        {
+          "flightNumber": "MF0843",
+          "airline": "厦门航空",
+          "from": "厦门高崎 T3",
+          "to": "曼谷素万那普",
+          "departTime": "22:20",
+          "arriveTime": "00:50",
+          "date": "2026-09-24",
+          "arriveDate": "2026-09-25",
+          "duration": "3h30m",
+          "cabin": "经济舱",
+          "passengers": [".ITONG", "LIQIANZHAO", "CUIB"]
+        }
+      ]
+    },
+    {
+      "id": "journey-02",
+      "title": "曼谷 → 阿布扎比",
+      "date": "2026-09-27",
+      "segments": [
+        {
+          "flightNumber": "EY0405",
+          "airline": "阿提哈德航空",
+          "from": "曼谷素万那普",
+          "to": "阿布扎比扎耶德 A",
+          "departTime": "15:55",
+          "arriveTime": "19:10",
+          "date": "2026-09-27",
+          "duration": "6h15m",
+          "cabin": "经济舱",
+          "passengers": ["LITONG", "CUIBIN", "ZHANGKE", "LIQIANZHAO"]
+        }
+      ]
+    },
+    {
+      "id": "journey-03",
+      "title": "阿布扎比 → 法兰克福",
+      "date": "2026-09-28",
+      "segments": [
+        {
+          "flightNumber": "EY0123",
+          "airline": "阿提哈德航空",
+          "from": "阿布扎比扎耶德 A",
+          "to": "法兰克福 T3",
+          "departTime": "14:20",
+          "arriveTime": "19:05",
+          "date": "2026-09-28",
+          "duration": "6h45m",
+          "cabin": "经济舱",
+          "passengers": ["LITONG", "CUIBIN", "ZHANGKE", "LIQIANZHAO"]
+        }
+      ]
+    },
+    {
+      "id": "journey-04",
+      "title": "布鲁塞尔 → 北京",
+      "date": "2026-10-10",
+      "segments": [
+        {
+          "flightNumber": "CA0964",
+          "airline": "中国国航",
+          "from": "布鲁塞尔",
+          "to": "北京首都 T3",
+          "departTime": "13:00",
+          "arriveTime": "04:45",
+          "date": "2026-10-10",
+          "arriveDate": "2026-10-11",
+          "duration": "9h45m",
+          "cabin": "经济舱",
+          "passengers": ["QIANZHAO", "LITONG", "ZHAN"]
+        }
+      ]
+    },
+    {
+      "id": "journey-05",
+      "title": "北京 → 马尼拉",
+      "date": "2026-10-11",
+      "segments": [
+        {
+          "flightNumber": "CA0179",
+          "airline": "中国国航",
+          "from": "北京首都 T3",
+          "to": "马尼拉尼诺伊阿基诺",
+          "departTime": "19:00",
+          "arriveTime": "00:20",
+          "date": "2026-10-11",
+          "arriveDate": "2026-10-12",
+          "duration": "5h20m",
+          "cabin": "经济舱",
+          "passengers": ["LIQIANZHAO", "LITONG", "Z"]
+        }
+      ]
+    }
+  ],
+  "flights": [
+    {
+      "id": "flight-01",
+      "flightNumber": "MF8550",
+      "airline": "厦门航空",
+      "date": "2026-09-24",
+      "from": "南京禄口 T1",
+      "to": "厦门高崎 T3",
+      "departTime": "18:30",
+      "arriveTime": "20:20",
+      "duration": "1h50m",
+      "cabin": "经济舱",
+      "passengers": [".ITONG", "LIQIANZHAO", "CUIB"]
+    },
+    {
+      "id": "flight-02",
+      "flightNumber": "MF0843",
+      "airline": "厦门航空",
+      "date": "2026-09-24",
+      "from": "厦门高崎 T3",
+      "to": "曼谷素万那普",
+      "departTime": "22:20",
+      "arriveTime": "00:50",
+      "arriveDate": "2026-09-25",
+      "duration": "3h30m",
+      "cabin": "经济舱",
+      "passengers": [".ITONG", "LIQIANZHAO", "CUIB"]
+    },
+    {
+      "id": "flight-03",
+      "flightNumber": "EY0405",
+      "airline": "阿提哈德航空",
+      "date": "2026-09-27",
+      "from": "曼谷素万那普",
+      "to": "阿布扎比扎耶德 A",
+      "departTime": "15:55",
+      "arriveTime": "19:10",
+      "duration": "6h15m",
+      "cabin": "经济舱",
+      "passengers": ["LITONG", "CUIBIN", "ZHANGKE", "LIQIANZHAO"]
+    },
+    {
+      "id": "flight-04",
+      "flightNumber": "EY0123",
+      "airline": "阿提哈德航空",
+      "date": "2026-09-28",
+      "from": "阿布扎比扎耶德 A",
+      "to": "法兰克福 T3",
+      "departTime": "14:20",
+      "arriveTime": "19:05",
+      "duration": "6h45m",
+      "cabin": "经济舱",
+      "passengers": ["LITONG", "CUIBIN", "ZHANGKE", "LIQIANZHAO"]
+    },
+    {
+      "id": "flight-05",
+      "flightNumber": "CA0964",
+      "airline": "中国国航",
+      "date": "2026-10-10",
+      "from": "布鲁塞尔",
+      "to": "北京首都 T3",
+      "departTime": "13:00",
+      "arriveTime": "04:45",
+      "arriveDate": "2026-10-11",
+      "duration": "9h45m",
+      "cabin": "经济舱",
+      "passengers": ["QIANZHAO", "LITONG", "ZHAN"]
+    },
+    {
+      "id": "flight-06",
+      "flightNumber": "CA0179",
+      "airline": "中国国航",
+      "date": "2026-10-11",
+      "from": "北京首都 T3",
+      "to": "马尼拉尼诺伊阿基诺",
+      "departTime": "19:00",
+      "arriveTime": "00:20",
+      "arriveDate": "2026-10-12",
+      "duration": "5h20m",
+      "cabin": "经济舱",
+      "passengers": ["LIQIANZHAO", "LITONG", "Z"]
+    }
+  ],
   "accommodations": [],
   "groundTransport": {
     "rentalCar": null,
@@ -102,16 +295,17 @@
       "day": 1,
       "date": "2026-09-24",
       "title": "抵达曼谷前段行程",
-      "locations": [
-        "南京",
-        "厦门",
-        "曼谷"
-      ],
+      "locations": ["南京", "厦门", "曼谷"],
       "schedule": [
         {
-          "time": "全天",
-          "text": "南京 → 厦门；按原行程继续前往曼谷",
-          "type": "transfer"
+          "time": "18:30",
+          "text": "MF8550 · 南京禄口 T1 → 厦门高崎 T3",
+          "type": "flight"
+        },
+        {
+          "time": "22:20",
+          "text": "MF0843 · 厦门高崎 T3 → 曼谷素万那普",
+          "type": "flight"
         },
         {
           "time": "住宿",
@@ -125,9 +319,7 @@
       "day": 2,
       "date": "2026-09-25",
       "title": "曼谷经典一日游",
-      "locations": [
-        "曼谷"
-      ],
+      "locations": ["曼谷"],
       "schedule": [
         {
           "time": "全天",
@@ -151,9 +343,7 @@
       "day": 3,
       "date": "2026-09-26",
       "title": "曼谷城市体验",
-      "locations": [
-        "曼谷"
-      ],
+      "locations": ["曼谷"],
       "schedule": [
         {
           "time": "白天",
@@ -172,14 +362,11 @@
       "day": 4,
       "date": "2026-09-27",
       "title": "曼谷 → 阿布扎比",
-      "locations": [
-        "曼谷",
-        "阿布扎比"
-      ],
+      "locations": ["曼谷", "阿布扎比"],
       "schedule": [
         {
           "time": "15:55",
-          "text": "EY0405 · 曼谷 → 阿布扎比",
+          "text": "EY0405 · 曼谷素万那普 → 阿布扎比扎耶德 A",
           "type": "flight"
         },
         {
@@ -199,14 +386,11 @@
       "day": 5,
       "date": "2026-09-28",
       "title": "阿布扎比 → 法兰克福",
-      "locations": [
-        "阿布扎比",
-        "法兰克福"
-      ],
+      "locations": ["阿布扎比", "法兰克福"],
       "schedule": [
         {
           "time": "14:20",
-          "text": "EY0123 · 阿布扎比 → 法兰克福",
+          "text": "EY0123 · 阿布扎比扎耶德 A → 法兰克福 T3",
           "type": "flight"
         },
         {
@@ -231,9 +415,7 @@
       "day": 6,
       "date": "2026-09-29",
       "title": "法兰克福",
-      "locations": [
-        "法兰克福"
-      ],
+      "locations": ["法兰克福"],
       "schedule": [
         {
           "time": "12:30",
@@ -252,11 +434,7 @@
       "day": 7,
       "date": "2026-09-30",
       "title": "伯尔尼 · 图恩 · Spiez",
-      "locations": [
-        "伯尔尼",
-        "图恩",
-        "Spiez"
-      ],
+      "locations": ["伯尔尼", "图恩", "Spiez"],
       "schedule": [
         {
           "time": "全天",
@@ -270,11 +448,7 @@
       "day": 8,
       "date": "2026-10-01",
       "title": "因特拉肯 · Blausee · Oeschinensee",
-      "locations": [
-        "因特拉肯",
-        "Blausee",
-        "Oeschinensee"
-      ],
+      "locations": ["因特拉肯", "Blausee", "Oeschinensee"],
       "schedule": [
         {
           "time": "全天",
@@ -298,10 +472,7 @@
       "day": 9,
       "date": "2026-10-02",
       "title": "马特洪峰",
-      "locations": [
-        "Zermatt",
-        "马特洪峰"
-      ],
+      "locations": ["Zermatt", "马特洪峰"],
       "schedule": [
         {
           "time": "全天",
@@ -315,10 +486,7 @@
       "day": 10,
       "date": "2026-10-03",
       "title": "Grindelwald · 少女峰地区",
-      "locations": [
-        "Grindelwald",
-        "Jungfrau Region"
-      ],
+      "locations": ["Grindelwald", "Jungfrau Region"],
       "schedule": [
         {
           "time": "全天",
@@ -342,11 +510,7 @@
       "day": 11,
       "date": "2026-10-04",
       "title": "卢塞恩 · 龙疆 · Rigi",
-      "locations": [
-        "卢塞恩",
-        "龙疆",
-        "Rigi"
-      ],
+      "locations": ["卢塞恩", "龙疆", "Rigi"],
       "schedule": [
         {
           "time": "全天",
@@ -360,10 +524,7 @@
       "day": 12,
       "date": "2026-10-05",
       "title": "少女峰地区 → 巴黎",
-      "locations": [
-        "Jungfrau Region",
-        "巴黎"
-      ],
+      "locations": ["Jungfrau Region", "巴黎"],
       "schedule": [
         {
           "time": "20:00",
@@ -387,9 +548,7 @@
       "day": 13,
       "date": "2026-10-06",
       "title": "巴黎城市游",
-      "locations": [
-        "巴黎"
-      ],
+      "locations": ["巴黎"],
       "schedule": [
         {
           "time": "全天",
@@ -408,9 +567,7 @@
       "day": 14,
       "date": "2026-10-07",
       "title": "巴黎深度游",
-      "locations": [
-        "巴黎"
-      ],
+      "locations": ["巴黎"],
       "schedule": [
         {
           "time": "全天",
@@ -434,11 +591,7 @@
       "day": 15,
       "date": "2026-10-08",
       "title": "巴黎 → 凡尔赛 → 布鲁塞尔",
-      "locations": [
-        "巴黎",
-        "凡尔赛",
-        "布鲁塞尔"
-      ],
+      "locations": ["巴黎", "凡尔赛", "布鲁塞尔"],
       "schedule": [
         {
           "time": "白天",
@@ -462,9 +615,7 @@
       "day": 16,
       "date": "2026-10-09",
       "title": "布鲁塞尔",
-      "locations": [
-        "布鲁塞尔"
-      ],
+      "locations": ["布鲁塞尔"],
       "schedule": [
         {
           "time": "全天",
@@ -478,14 +629,11 @@
       "day": 17,
       "date": "2026-10-10",
       "title": "布鲁塞尔 → 北京",
-      "locations": [
-        "布鲁塞尔",
-        "北京"
-      ],
+      "locations": ["布鲁塞尔", "北京"],
       "schedule": [
         {
           "time": "13:00",
-          "text": "CA0964 · 布鲁塞尔 → 北京",
+          "text": "CA0964 · 布鲁塞尔 → 北京首都 T3",
           "type": "flight"
         }
       ]
@@ -509,11 +657,7 @@
     "note": "第一版先以每日行程为主，暂不启用模板路线地图。",
     "cityLevelNavigationDisabled": false,
     "navigationPolicy": {
-      "noNavigationTypes": [
-        "flight",
-        "note",
-        "rest"
-      ],
+      "noNavigationTypes": ["flight", "note", "rest"],
       "selfNavigationTypes": [
         "drive",
         "return",
@@ -531,7 +675,8 @@
   "issuesAndUncertainties": [
     "Excel 中 9月24日—10月10日为完整主行程；10月11日—10月13日的内容未纳入第一版行程。",
     "Excel 中部分住宿记录与城市/抵达日期存在错位，第一版按原 Excel 所在日期保留，未擅自调整。",
-    "航班模块暂未单独启用；已将 Excel 中明确出现的航班号和时间保留在每日行程中，避免补充未经确认的机场信息。"
+    "航班模块已根据同程旅行截图补充：MF8550、MF0843、EY0405、EY0123、CA0964、CA0179。",
+    "截图中的乘客姓名仅保留截图可见部分，未补全未知姓名；如需完整名单请在页面内编辑。"
   ],
   "map": {
     "schemaVersion": "1.0-lite",
