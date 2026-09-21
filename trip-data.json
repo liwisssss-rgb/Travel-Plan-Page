@@ -5,11 +5,11 @@
     "schemaVersion": "1.0.0",
     "modules": {
       "flights": true,
-      "overview": false,
+      "overview": true,
       "itinerary": true,
-      "todo": false,
-      "driving": false,
-      "ledger": false
+      "todo": true,
+      "driving": true,
+      "ledger": true
     },
     "language": "zh-CN",
     "persistence": {
@@ -109,8 +109,18 @@
   ],
   "accommodations": [],
   "groundTransport": {
-    "rentalCar": null,
-    "rentalChecklist": [],
+    "rentalCar": {
+      "company": "待补充",
+      "vehicle": { "model": "待补充", "type": "待补充" },
+      "price": { "amount": 0, "currency": "CNY", "note": "待补充" },
+      "pickup": { "date": "2026-09-28", "time": "00:00", "utcOffset": "+02:00", "location": "法兰克福" },
+      "dropoff": { "date": "2026-10-05", "time": "00:00", "utcOffset": "+02:00", "location": "巴黎" }
+    },
+    "rentalChecklist": [
+      { "id": "rental-01", "text": "护照 / 驾照 / 国际驾照翻译件", "done": false },
+      { "id": "rental-02", "text": "信用卡（主驾驶人）", "done": false },
+      { "id": "rental-03", "text": "取车凭证 / 订单号", "done": false }
+    ],
     "drivingNotes": [],
     "drivingReferenceLinks": [],
     "plannedRoadLegs": [],
@@ -258,13 +268,25 @@
     "items": []
   },
   "preTrip": {
-    "packingItems": [],
+    "packingItems": [
+      { "id": "pack-01", "text": "护照 / 签证 / 身份证", "done": false },
+      { "id": "pack-02", "text": "欧标转换插头 + 插线板", "done": false },
+      { "id": "pack-03", "text": "瑞士法郎 / 欧元现金 + 信用卡", "done": false },
+      { "id": "pack-04", "text": "常用药、晕车药、创可贴", "done": false },
+      { "id": "pack-05", "text": "冲锋衣 / 徒步鞋 / 保暖层", "done": false },
+      { "id": "pack-06", "text": "驾照 / 国际驾照翻译件（租车用）", "done": false }
+    ],
     "preparationsExplicitlyMentioned": [],
     "missingNote": ""
   },
+  "ledger": {
+    "currency": "CNY",
+    "members": ["LIQIANZHAO", "LITONG", "CUIBIN", "ZHANGKE"],
+    "expenses": []
+  },
   "mapLinks": {
     "providedGoogleMapsLinks": [],
-    "note": "地图模块暂未开启。",
+    "note": "地图总览由 map.places / map.routes 生成，运行 npm run build:map 后生效。",
     "cityLevelNavigationDisabled": false,
     "navigationPolicy": {
       "noNavigationTypes": ["flight", "note", "rest"],
@@ -273,16 +295,82 @@
     "navigationPlaces": []
   },
   "issuesAndUncertainties": [
-    "航班模块已按同程截图补充：MF8550、MF0843、EY0405、EY0123、CA0964、CA0179。",
-    "地图、租车、To Do、记账模块暂未开启，待补数据后再打开。",
-    "validate-lite.mjs 仅以 flightJourneys 判断航班模块是否有数据，flights 通过 journeyId 与其关联。"
+    "租车数据为占位，请替换为真实租车信息后再出行使用。",
+    "地图地点坐标为近似中心点，可后续微调。",
+    "记账为本地模式，账目在浏览器本地保存。"
   ],
   "map": {
     "schemaVersion": "1.0-lite",
     "mapMode": "template-auto",
     "templateId": "auto",
-    "places": [],
-    "routes": [],
-    "dailyRoutes": []
+    "places": [
+      { "id": "cn-nanjing", "countryCode": "CN", "geo": { "lat": 32.0603, "lng": 118.7969 } },
+      { "id": "cn-xiamen", "countryCode": "CN", "geo": { "lat": 24.4798, "lng": 118.0894 } },
+      { "id": "th-bangkok", "countryCode": "TH", "geo": { "lat": 13.7563, "lng": 100.5018 } },
+      { "id": "th-grand-palace", "countryCode": "TH", "geo": { "lat": 13.7500, "lng": 100.4914 } },
+      { "id": "th-wat-arun", "countryCode": "TH", "geo": { "lat": 13.7437, "lng": 100.4889 } },
+      { "id": "th-iconsiam", "countryCode": "TH", "geo": { "lat": 13.7264, "lng": 100.5100 } },
+      { "id": "th-chatuchak", "countryCode": "TH", "geo": { "lat": 13.7999, "lng": 100.5500 } },
+      { "id": "ae-abu-dhabi", "countryCode": "AE", "geo": { "lat": 24.4539, "lng": 54.3773 } },
+      { "id": "ae-sheikh-zayed-mosque", "countryCode": "AE", "geo": { "lat": 24.4128, "lng": 54.4750 } },
+      { "id": "de-frankfurt", "countryCode": "DE", "geo": { "lat": 50.1109, "lng": 8.6821 } },
+      { "id": "ch-bern", "countryCode": "CH", "geo": { "lat": 46.9480, "lng": 7.4474 } },
+      { "id": "ch-thun", "countryCode": "CH", "geo": { "lat": 46.7580, "lng": 7.6280 } },
+      { "id": "ch-spiez", "countryCode": "CH", "geo": { "lat": 46.6880, "lng": 7.6790 } },
+      { "id": "ch-interlaken", "countryCode": "CH", "geo": { "lat": 46.6863, "lng": 7.8632 } },
+      { "id": "ch-blausee", "countryCode": "CH", "geo": { "lat": 46.5325, "lng": 7.6642 } },
+      { "id": "ch-oeschinensee", "countryCode": "CH", "geo": { "lat": 46.4980, "lng": 7.7270 } },
+      { "id": "ch-zermatt", "countryCode": "CH", "geo": { "lat": 46.0207, "lng": 7.7491 } },
+      { "id": "ch-matterhorn", "countryCode": "CH", "geo": { "lat": 45.9763, "lng": 7.6586 } },
+      { "id": "ch-grindelwald", "countryCode": "CH", "geo": { "lat": 46.6242, "lng": 8.0414 } },
+      { "id": "ch-jungfrau", "countryCode": "CH", "geo": { "lat": 46.5368, "lng": 7.9626 } },
+      { "id": "ch-lauterbrunnen", "countryCode": "CH", "geo": { "lat": 46.5930, "lng": 7.9090 } },
+      { "id": "ch-lucerne", "countryCode": "CH", "geo": { "lat": 47.0502, "lng": 8.3093 } },
+      { "id": "ch-lungern", "countryCode": "CH", "geo": { "lat": 46.7860, "lng": 8.1590 } },
+      { "id": "ch-rigi", "countryCode": "CH", "geo": { "lat": 47.0560, "lng": 8.4850 } },
+      { "id": "fr-paris", "countryCode": "FR", "geo": { "lat": 48.8566, "lng": 2.3522 } },
+      { "id": "fr-eiffel-tower", "countryCode": "FR", "geo": { "lat": 48.8584, "lng": 2.2945 } },
+      { "id": "fr-louvre", "countryCode": "FR", "geo": { "lat": 48.8606, "lng": 2.3376 } },
+      { "id": "fr-versailles", "countryCode": "FR", "geo": { "lat": 48.8049, "lng": 2.1204 } },
+      { "id": "be-brussels", "countryCode": "BE", "geo": { "lat": 50.8503, "lng": 4.3517 } }
+    ],
+    "routes": [
+      { "day": 1, "placeIds": ["cn-nanjing", "cn-xiamen", "th-bangkok"] },
+      { "day": 2, "placeIds": ["th-bangkok", "th-grand-palace", "th-wat-arun", "th-iconsiam"] },
+      { "day": 3, "placeIds": ["th-bangkok", "th-iconsiam", "th-chatuchak"] },
+      { "day": 4, "placeIds": ["th-bangkok", "ae-abu-dhabi"] },
+      { "day": 5, "placeIds": ["ae-abu-dhabi", "ae-sheikh-zayed-mosque", "de-frankfurt"] },
+      { "day": 6, "placeIds": ["de-frankfurt", "ch-bern"] },
+      { "day": 7, "placeIds": ["ch-bern", "ch-thun", "ch-spiez"] },
+      { "day": 8, "placeIds": ["ch-interlaken", "ch-blausee", "ch-oeschinensee"] },
+      { "day": 9, "placeIds": ["ch-zermatt", "ch-matterhorn"] },
+      { "day": 10, "placeIds": ["ch-grindelwald", "ch-jungfrau", "ch-lauterbrunnen"] },
+      { "day": 11, "placeIds": ["ch-lucerne", "ch-lungern", "ch-rigi"] },
+      { "day": 12, "placeIds": ["ch-interlaken", "fr-paris", "fr-eiffel-tower"] },
+      { "day": 13, "placeIds": ["fr-paris", "fr-eiffel-tower", "fr-louvre"] },
+      { "day": 14, "placeIds": ["fr-paris", "fr-louvre"] },
+      { "day": 15, "placeIds": ["fr-paris", "fr-versailles", "be-brussels"] },
+      { "day": 16, "placeIds": ["be-brussels", "be-brussels"] },
+      { "day": 17, "placeIds": ["be-brussels", "cn-nanjing"] }
+    ],
+    "dailyRoutes": [
+      { "day": 1, "placeIds": ["cn-nanjing", "cn-xiamen", "th-bangkok"] },
+      { "day": 2, "placeIds": ["th-bangkok", "th-grand-palace", "th-wat-arun", "th-iconsiam"] },
+      { "day": 3, "placeIds": ["th-bangkok", "th-iconsiam", "th-chatuchak"] },
+      { "day": 4, "placeIds": ["th-bangkok", "ae-abu-dhabi"] },
+      { "day": 5, "placeIds": ["ae-abu-dhabi", "ae-sheikh-zayed-mosque", "de-frankfurt"] },
+      { "day": 6, "placeIds": ["de-frankfurt", "ch-bern"] },
+      { "day": 7, "placeIds": ["ch-bern", "ch-thun", "ch-spiez"] },
+      { "day": 8, "placeIds": ["ch-interlaken", "ch-blausee", "ch-oeschinensee"] },
+      { "day": 9, "placeIds": ["ch-zermatt", "ch-matterhorn"] },
+      { "day": 10, "placeIds": ["ch-grindelwald", "ch-jungfrau", "ch-lauterbrunnen"] },
+      { "day": 11, "placeIds": ["ch-lucerne", "ch-lungern", "ch-rigi"] },
+      { "day": 12, "placeIds": ["ch-interlaken", "fr-paris", "fr-eiffel-tower"] },
+      { "day": 13, "placeIds": ["fr-paris", "fr-eiffel-tower", "fr-louvre"] },
+      { "day": 14, "placeIds": ["fr-paris", "fr-louvre"] },
+      { "day": 15, "placeIds": ["fr-paris", "fr-versailles", "be-brussels"] },
+      { "day": 16, "placeIds": ["be-brussels", "be-brussels"] },
+      { "day": 17, "placeIds": ["be-brussels", "cn-nanjing"] }
+    ]
   }
 }
