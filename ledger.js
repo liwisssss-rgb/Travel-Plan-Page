@@ -13,6 +13,13 @@
     "#4F72A2", "#B85F76", "#4E8F86", "#9A6B4F", "#68798E"
   ]);
 
+  // Fixed exchange rates to CNY. Add more currencies here if needed.
+  const FIXED_RATES_TO_CNY = Object.freeze({
+    EUR: 7.68,
+    CHF: 8.15,
+    THB: 0.20
+  });
+
   // The picker searches every field, so the complete catalog can stay out of view
   // until a traveler asks for a particular currency.
   const SEEDED_CURRENCY_CATALOG = Object.freeze([
@@ -297,6 +304,8 @@
         orderedAt: typeof bill.orderedAt === "string" ? bill.orderedAt : "",
         payerId,
         participantIds,
+        exchangeRate: Number.isFinite(Number(bill?.exchangeRate)) ? Number(bill.exchangeRate) : 1,
+        exchangeRateSource: typeof bill?.exchangeRateSource === "string" ? bill.exchangeRateSource : "",
         createdAt: typeof bill.createdAt === "string" ? bill.createdAt : new Date().toISOString(),
         updatedAt: typeof bill.updatedAt === "string" ? bill.updatedAt : new Date().toISOString()
       }];
@@ -639,6 +648,7 @@
     const currency = editingBill?.currency || draft?.currency || ledgerData.settings.lastCurrency;
     const baseCurrency = ledgerData.settings.baseCurrency;
     const isForeign = currency !== baseCurrency;
+    const hasFixedRate = isForeign && FIXED_RATES_TO_CNY[currency] != null;
     const selectedParticipants = new Set(
       editingBill?.participantIds
       || draft?.participantIds
@@ -646,6 +656,12 @@
     );
     const selectedPayerId = editingBill?.payerId || draft?.payerId || "";
     const selectedCategory = editingBill?.category || draft?.category || "餐饮";
+    const rateHelp = hasFixedRate
+      ? `固定汇率：1 ${currency} = ${FIXED_RATES_TO_CNY[currency]} ${baseCurrency}`
+      : "按付款当时采用的汇率手动填写";
+    const baseAmountValue = editingBill
+      ? (isForeign ? centsToInput(editingBill.baseAmountCents) : "")
+      : (draft?.baseAmount || "");
     return `
       <section class="ledger-entry-card" aria-labelledby="ledger-bill-form-title">
         <div class="ledger-section-heading">
@@ -675,9 +691,9 @@
               <span class="ledger-field-label">折合${escapeHtml(currencyByCode(baseCurrency).nameZh)}</span>
               <span class="ledger-converted-input-wrap">
                 <span class="ledger-converted-code">${escapeHtml(baseCurrency)}</span>
-                <input class="ledger-input" name="baseAmount" data-ledger-field="base-amount" type="text" inputmode="decimal" autocomplete="off" placeholder="手动填写换算后的总金额" value="${escapeAttribute(editingBill && isForeign ? centsToInput(editingBill.baseAmountCents) : draft?.baseAmount || "")}" ${isForeign ? "required" : ""}>
+                <input class="ledger-input" name="baseAmount" data-ledger-field="base-amount" type="text" inputmode="decimal" autocomplete="off" placeholder="自动计算，可手动覆盖" value="${escapeAttribute(baseAmountValue)}" ${hasFixedRate ? "readonly" : ""} ${isForeign && !hasFixedRate ? "required" : ""}>
               </span>
-              <small class="ledger-field-help">按付款当时采用的汇率手动填写</small>
+              <small class="ledger-field-help" data-ledger-rate-help>${escapeHtml(rateHelp)}</small>
             </label>
 
             <fieldset class="ledger-fieldset">
@@ -1285,16 +1301,49 @@
     summary.textContent = `已选 ${participants.length} 人 · 每人约 ${formatMoney(averageCents, ledgerData.settings.baseCurrency)}`;
   }
 
+  function autoConvertFixedRate(form, currency, originalInput, convertedInput) {
+    const rate = FIXED_RATES_TO_CNY[currency];
+    if (!rate) return;
+    const originalCents = toCents(originalInput?.value);
+    const help = form.querySelector("[data-ledger-rate-help]");
+    if (!originalCents || originalCents <= 0) {
+      convertedInput.value = "";
+      if (help) help.textContent = `固定汇率：1 ${currency} = ${rate} ${ledgerData.settings.baseCurrency}`;
+      return;
+    }
+    const baseCents = Math.round(originalCents * rate);
+    convertedInput.value = centsToInput(baseCents);
+    if (help) help.textContent = `固定汇率：1 ${currency} = ${rate} ${ledgerData.settings.baseCurrency}`;
+  }
+
   function syncCurrencyField(select) {
     const form = select.closest("form");
     if (!form) return;
     const convertedField = form.querySelector("[data-ledger-converted-field]");
     const convertedInput = form.querySelector('[data-ledger-field="base-amount"]');
-    const isForeign = select.value !== ledgerData.settings.baseCurrency;
+    const originalInput = form.querySelector('[data-ledger-field="original-amount"]');
+    const currency = select.value;
+    const baseCurrency = ledgerData.settings.baseCurrency;
+    const isForeign = currency !== baseCurrency;
+    const hasFixedRate = isForeign && FIXED_RATES_TO_CNY[currency] != null;
+    const help = form.querySelector("[data-ledger-rate-help]");
+
     if (convertedField) convertedField.hidden = !isForeign;
     if (convertedInput) {
-      convertedInput.required = isForeign;
-      if (!isForeign) convertedInput.value = "";
+      if (!isForeign) {
+        convertedInput.value = "";
+        convertedInput.readOnly = false;
+        convertedInput.required = false;
+      } else if (hasFixedRate) {
+        convertedInput.readOnly = true;
+        convertedInput.required = false;
+        autoConvertFixedRate(form, currency, originalInput, convertedInput);
+      } else {
+        convertedInput.readOnly = false;
+        convertedInput.required = true;
+        convertedInput.value = "";
+        if (help) help.textContent = "按付款当时采用的汇率手动填写";
+      }
     }
     captureBillDraft();
     syncSplitSummary();
@@ -1395,7 +1444,26 @@
     const currency = String(formData.get("currency") || "").toUpperCase();
     const originalAmountCents = toCents(formData.get("originalAmount"));
     const isForeign = currency !== ledgerData.settings.baseCurrency;
-    const baseAmountCents = isForeign ? toCents(formData.get("baseAmount")) : originalAmountCents;
+    const fixedRate = FIXED_RATES_TO_CNY[currency];
+
+    let baseAmountCents;
+    let exchangeRate = 1;
+    let exchangeRateSource = "same-currency";
+
+    if (!isForeign) {
+      baseAmountCents = originalAmountCents;
+    } else if (fixedRate != null) {
+      exchangeRate = fixedRate;
+      baseAmountCents = originalAmountCents != null ? Math.round(originalAmountCents * fixedRate) : null;
+      exchangeRateSource = "fixed";
+    } else {
+      baseAmountCents = toCents(formData.get("baseAmount"));
+      exchangeRate = (originalAmountCents && baseAmountCents)
+        ? baseAmountCents / originalAmountCents
+        : 1;
+      exchangeRateSource = "manual";
+    }
+
     const category = String(formData.get("category") || "");
     const payerId = String(formData.get("payerId") || "");
     const participantIds = [...new Set(formData.getAll("participantIds").map(String))]
@@ -1438,6 +1506,8 @@
       orderedAt: String(formData.get("orderedAt") || ""),
       payerId,
       participantIds,
+      exchangeRate,
+      exchangeRateSource,
       updatedAt: now
     };
     const billBeingEdited = ledgerData.bills.find((bill) => bill.id === editingBillId);
@@ -1782,7 +1852,20 @@
     }
     const memberForm = event.target.closest('[data-ledger-form="member-add"]');
     if (memberForm) syncMemberPreview(memberForm);
-    if (event.target.closest('[data-ledger-form="bill"]')) {
+    const billForm = event.target.closest('[data-ledger-form="bill"]');
+    if (billForm) {
+      const currencyField = billForm.querySelector('[data-ledger-field="currency"]');
+      const convertedInput = billForm.querySelector('[data-ledger-field="base-amount"]');
+      const originalInput = billForm.querySelector('[data-ledger-field="original-amount"]');
+      const currency = currencyField?.value || "";
+      if (
+        FIXED_RATES_TO_CNY[currency] != null
+        && event.target.matches('[data-ledger-field="original-amount"]')
+        && convertedInput
+        && originalInput
+      ) {
+        autoConvertFixedRate(billForm, currency, originalInput, convertedInput);
+      }
       captureBillDraft();
       syncSplitSummary();
     }
@@ -1894,7 +1977,8 @@
     },
     getSnapshot() {
       return ledgerData ? deepClone(ledgerData) : null;
-    }
+    },
+    fixedRatesToCny: FIXED_RATES_TO_CNY
   };
   if (typeof module === "object" && module.exports) module.exports = publicApi;
   if (typeof window === "undefined" || typeof document === "undefined") return;
