@@ -5,11 +5,11 @@
     "schemaVersion": "1.0.0",
     "modules": {
       "flights": true,
-      "overview": true,
+      "overview": false,
       "itinerary": true,
-      "todo": true,
-      "driving": true,
-      "ledger": true
+      "todo": false,
+      "driving": false,
+      "ledger": false
     },
     "language": "zh-CN",
     "persistence": {
@@ -30,45 +30,14 @@
     "dayCount": 17,
     "nightCountAway": 16,
     "countries": [
-      {
-        "code": "TH",
-        "nameZh": "泰国",
-        "nameEn": "Thailand"
-      },
-      {
-        "code": "AE",
-        "nameZh": "阿联酋",
-        "nameEn": "United Arab Emirates"
-      },
-      {
-        "code": "DE",
-        "nameZh": "德国",
-        "nameEn": "Germany"
-      },
-      {
-        "code": "CH",
-        "nameZh": "瑞士",
-        "nameEn": "Switzerland"
-      },
-      {
-        "code": "FR",
-        "nameZh": "法国",
-        "nameEn": "France"
-      },
-      {
-        "code": "BE",
-        "nameZh": "比利时",
-        "nameEn": "Belgium"
-      }
+      { "code": "TH", "nameZh": "泰国", "nameEn": "Thailand" },
+      { "code": "AE", "nameZh": "阿联酋", "nameEn": "United Arab Emirates" },
+      { "code": "DE", "nameZh": "德国", "nameEn": "Germany" },
+      { "code": "CH", "nameZh": "瑞士", "nameEn": "Switzerland" },
+      { "code": "FR", "nameZh": "法国", "nameEn": "France" },
+      { "code": "BE", "nameZh": "比利时", "nameEn": "Belgium" }
     ],
-    "primaryDestinationCountries": [
-      "TH",
-      "AE",
-      "DE",
-      "CH",
-      "FR",
-      "BE"
-    ],
+    "primaryDestinationCountries": ["TH", "AE", "DE", "CH", "FR", "BE"],
     "citiesAndAreas": [
       "曼谷",
       "阿布扎比",
@@ -85,118 +54,6 @@
     "heroTitle": "泰国 · 阿布扎比 · 欧洲之旅",
     "heroEyebrow": "THAILAND · UAE · EUROPE · 2026"
   },
-  "flightJourneys": [
-    {
-      "id": "journey-01",
-      "title": "南京 → 厦门 → 曼谷",
-      "date": "2026-09-24",
-      "segments": [
-        {
-          "flightNumber": "MF8550",
-          "airline": "厦门航空",
-          "from": "南京禄口 T1",
-          "to": "厦门高崎 T3",
-          "departTime": "18:30",
-          "arriveTime": "20:20",
-          "date": "2026-09-24",
-          "duration": "1h50m",
-          "cabin": "经济舱",
-          "passengers": [".ITONG", "LIQIANZHAO", "CUIB"]
-        },
-        {
-          "flightNumber": "MF0843",
-          "airline": "厦门航空",
-          "from": "厦门高崎 T3",
-          "to": "曼谷素万那普",
-          "departTime": "22:20",
-          "arriveTime": "00:50",
-          "date": "2026-09-24",
-          "arriveDate": "2026-09-25",
-          "duration": "3h30m",
-          "cabin": "经济舱",
-          "passengers": [".ITONG", "LIQIANZHAO", "CUIB"]
-        }
-      ]
-    },
-    {
-      "id": "journey-02",
-      "title": "曼谷 → 阿布扎比",
-      "date": "2026-09-27",
-      "segments": [
-        {
-          "flightNumber": "EY0405",
-          "airline": "阿提哈德航空",
-          "from": "曼谷素万那普",
-          "to": "阿布扎比扎耶德 A",
-          "departTime": "15:55",
-          "arriveTime": "19:10",
-          "date": "2026-09-27",
-          "duration": "6h15m",
-          "cabin": "经济舱",
-          "passengers": ["LITONG", "CUIBIN", "ZHANGKE", "LIQIANZHAO"]
-        }
-      ]
-    },
-    {
-      "id": "journey-03",
-      "title": "阿布扎比 → 法兰克福",
-      "date": "2026-09-28",
-      "segments": [
-        {
-          "flightNumber": "EY0123",
-          "airline": "阿提哈德航空",
-          "from": "阿布扎比扎耶德 A",
-          "to": "法兰克福 T3",
-          "departTime": "14:20",
-          "arriveTime": "19:05",
-          "date": "2026-09-28",
-          "duration": "6h45m",
-          "cabin": "经济舱",
-          "passengers": ["LITONG", "CUIBIN", "ZHANGKE", "LIQIANZHAO"]
-        }
-      ]
-    },
-    {
-      "id": "journey-04",
-      "title": "布鲁塞尔 → 北京",
-      "date": "2026-10-10",
-      "segments": [
-        {
-          "flightNumber": "CA0964",
-          "airline": "中国国航",
-          "from": "布鲁塞尔",
-          "to": "北京首都 T3",
-          "departTime": "13:00",
-          "arriveTime": "04:45",
-          "date": "2026-10-10",
-          "arriveDate": "2026-10-11",
-          "duration": "9h45m",
-          "cabin": "经济舱",
-          "passengers": ["QIANZHAO", "LITONG", "ZHAN"]
-        }
-      ]
-    },
-    {
-      "id": "journey-05",
-      "title": "北京 → 马尼拉",
-      "date": "2026-10-11",
-      "segments": [
-        {
-          "flightNumber": "CA0179",
-          "airline": "中国国航",
-          "from": "北京首都 T3",
-          "to": "马尼拉尼诺伊阿基诺",
-          "departTime": "19:00",
-          "arriveTime": "00:20",
-          "date": "2026-10-11",
-          "arriveDate": "2026-10-12",
-          "duration": "5h20m",
-          "cabin": "经济舱",
-          "passengers": ["LIQIANZHAO", "LITONG", "Z"]
-        }
-      ]
-    }
-  ],
   "flights": [
     {
       "id": "flight-01",
@@ -205,11 +62,10 @@
       "date": "2026-09-24",
       "from": "南京禄口 T1",
       "to": "厦门高崎 T3",
-      "departTime": "18:30",
-      "arriveTime": "20:20",
+      "departure": { "time": "18:30", "utcOffset": "+08:00" },
+      "arrival": { "time": "20:20", "utcOffset": "+08:00" },
       "duration": "1h50m",
-      "cabin": "经济舱",
-      "passengers": [".ITONG", "LIQIANZHAO", "CUIB"]
+      "cabin": "经济舱"
     },
     {
       "id": "flight-02",
@@ -218,12 +74,10 @@
       "date": "2026-09-24",
       "from": "厦门高崎 T3",
       "to": "曼谷素万那普",
-      "departTime": "22:20",
-      "arriveTime": "00:50",
-      "arriveDate": "2026-09-25",
+      "departure": { "time": "22:20", "utcOffset": "+08:00" },
+      "arrival": { "time": "00:50", "utcOffset": "+07:00", "arriveDate": "2026-09-25" },
       "duration": "3h30m",
-      "cabin": "经济舱",
-      "passengers": [".ITONG", "LIQIANZHAO", "CUIB"]
+      "cabin": "经济舱"
     },
     {
       "id": "flight-03",
@@ -232,11 +86,10 @@
       "date": "2026-09-27",
       "from": "曼谷素万那普",
       "to": "阿布扎比扎耶德 A",
-      "departTime": "15:55",
-      "arriveTime": "19:10",
+      "departure": { "time": "15:55", "utcOffset": "+07:00" },
+      "arrival": { "time": "19:10", "utcOffset": "+04:00" },
       "duration": "6h15m",
-      "cabin": "经济舱",
-      "passengers": ["LITONG", "CUIBIN", "ZHANGKE", "LIQIANZHAO"]
+      "cabin": "经济舱"
     },
     {
       "id": "flight-04",
@@ -245,11 +98,10 @@
       "date": "2026-09-28",
       "from": "阿布扎比扎耶德 A",
       "to": "法兰克福 T3",
-      "departTime": "14:20",
-      "arriveTime": "19:05",
+      "departure": { "time": "14:20", "utcOffset": "+04:00" },
+      "arrival": { "time": "19:05", "utcOffset": "+02:00" },
       "duration": "6h45m",
-      "cabin": "经济舱",
-      "passengers": ["LITONG", "CUIBIN", "ZHANGKE", "LIQIANZHAO"]
+      "cabin": "经济舱"
     },
     {
       "id": "flight-05",
@@ -258,12 +110,10 @@
       "date": "2026-10-10",
       "from": "布鲁塞尔",
       "to": "北京首都 T3",
-      "departTime": "13:00",
-      "arriveTime": "04:45",
-      "arriveDate": "2026-10-11",
+      "departure": { "time": "13:00", "utcOffset": "+02:00" },
+      "arrival": { "time": "04:45", "utcOffset": "+08:00", "arriveDate": "2026-10-11" },
       "duration": "9h45m",
-      "cabin": "经济舱",
-      "passengers": ["QIANZHAO", "LITONG", "ZHAN"]
+      "cabin": "经济舱"
     },
     {
       "id": "flight-06",
@@ -272,12 +122,10 @@
       "date": "2026-10-11",
       "from": "北京首都 T3",
       "to": "马尼拉尼诺伊阿基诺",
-      "departTime": "19:00",
-      "arriveTime": "00:20",
-      "arriveDate": "2026-10-12",
+      "departure": { "time": "19:00", "utcOffset": "+08:00" },
+      "arrival": { "time": "00:20", "utcOffset": "+08:00", "arriveDate": "2026-10-12" },
       "duration": "5h20m",
-      "cabin": "经济舱",
-      "passengers": ["LIQIANZHAO", "LITONG", "Z"]
+      "cabin": "经济舱"
     }
   ],
   "accommodations": [],
@@ -297,21 +145,9 @@
       "title": "抵达曼谷前段行程",
       "locations": ["南京", "厦门", "曼谷"],
       "schedule": [
-        {
-          "time": "18:30",
-          "text": "MF8550 · 南京禄口 T1 → 厦门高崎 T3",
-          "type": "flight"
-        },
-        {
-          "time": "22:20",
-          "text": "MF0843 · 厦门高崎 T3 → 曼谷素万那普",
-          "type": "flight"
-        },
-        {
-          "time": "住宿",
-          "text": "Holiday Inn Express & Suites Bangkok Central Pier by IHG · 193 South Sathon Road",
-          "type": "check-in"
-        }
+        { "time": "18:30", "text": "MF8550 · 南京禄口 T1 → 厦门高崎 T3", "type": "flight" },
+        { "time": "22:20", "text": "MF0843 · 厦门高崎 T3 → 曼谷素万那普", "type": "flight" },
+        { "time": "住宿", "text": "Holiday Inn Express & Suites Bangkok Central Pier by IHG · 193 South Sathon Road", "type": "check-in" }
       ]
     },
     {
@@ -321,21 +157,9 @@
       "title": "曼谷经典一日游",
       "locations": ["曼谷"],
       "schedule": [
-        {
-          "time": "全天",
-          "text": "大皇宫（含卧佛寺、玉佛寺）、水上市场、美功铁道市场、水门寺",
-          "type": "attraction"
-        },
-        {
-          "time": "傍晚",
-          "text": "郑王庙、湄南河游船",
-          "type": "boat"
-        },
-        {
-          "time": "晚间",
-          "text": "朱拉隆功夜市",
-          "type": "attraction"
-        }
+        { "time": "全天", "text": "大皇宫（含卧佛寺、玉佛寺）、水上市场、美功铁道市场、水门寺", "type": "attraction" },
+        { "time": "傍晚", "text": "郑王庙、湄南河游船", "type": "boat" },
+        { "time": "晚间", "text": "朱拉隆功夜市", "type": "attraction" }
       ]
     },
     {
@@ -345,16 +169,8 @@
       "title": "曼谷城市体验",
       "locations": ["曼谷"],
       "schedule": [
-        {
-          "time": "白天",
-          "text": "射击体验、ICONSIAM、CentralWorld、Siam Square",
-          "type": "attraction"
-        },
-        {
-          "time": "晚间",
-          "text": "按摩、王权免税店、摩天轮夜市",
-          "type": "attraction"
-        }
+        { "time": "白天", "text": "射击体验、ICONSIAM、CentralWorld、Siam Square", "type": "attraction" },
+        { "time": "晚间", "text": "按摩、王权免税店、摩天轮夜市", "type": "attraction" }
       ]
     },
     {
@@ -364,21 +180,9 @@
       "title": "曼谷 → 阿布扎比",
       "locations": ["曼谷", "阿布扎比"],
       "schedule": [
-        {
-          "time": "15:55",
-          "text": "EY0405 · 曼谷素万那普 → 阿布扎比扎耶德 A",
-          "type": "flight"
-        },
-        {
-          "time": "19:10",
-          "text": "抵达阿布扎比",
-          "type": "arrival"
-        },
-        {
-          "time": "住宿",
-          "text": "La Quinta by Wyndham Abu Dhabi Al Wahda · 601 South Rashid Bin Saeed St, Al Nahyan Zone 1, Abu Dhabi",
-          "type": "check-in"
-        }
+        { "time": "15:55", "text": "EY0405 · 曼谷素万那普 → 阿布扎比扎耶德 A", "type": "flight" },
+        { "time": "19:10", "text": "抵达阿布扎比", "type": "arrival" },
+        { "time": "住宿", "text": "La Quinta by Wyndham Abu Dhabi Al Wahda · 601 South Rashid Bin Saeed St, Al Nahyan Zone 1, Abu Dhabi", "type": "check-in" }
       ]
     },
     {
@@ -388,26 +192,10 @@
       "title": "阿布扎比 → 法兰克福",
       "locations": ["阿布扎比", "法兰克福"],
       "schedule": [
-        {
-          "time": "14:20",
-          "text": "EY0123 · 阿布扎比扎耶德 A → 法兰克福 T3",
-          "type": "flight"
-        },
-        {
-          "time": "19:05",
-          "text": "抵达法兰克福",
-          "type": "arrival"
-        },
-        {
-          "time": "提示",
-          "text": "谢赫扎耶德大清真寺着装：长裤、长袖；衣物需不透光，并按要求佩戴头巾",
-          "type": "note"
-        },
-        {
-          "time": "住宿",
-          "text": "LyvInn Hotel Frankfurt · 64 Europa-Allee, Gallus, Frankfurt am Main, 60327",
-          "type": "check-in"
-        }
+        { "time": "14:20", "text": "EY0123 · 阿布扎比扎耶德 A → 法兰克福 T3", "type": "flight" },
+        { "time": "19:05", "text": "抵达法兰克福", "type": "arrival" },
+        { "time": "提示", "text": "谢赫扎耶德大清真寺着装：长裤、长袖；衣物需不透光，并按要求佩戴头巾", "type": "note" },
+        { "time": "住宿", "text": "LyvInn Hotel Frankfurt · 64 Europa-Allee, Gallus, Frankfurt am Main, 60327", "type": "check-in" }
       ]
     },
     {
@@ -417,16 +205,8 @@
       "title": "法兰克福",
       "locations": ["法兰克福"],
       "schedule": [
-        {
-          "time": "12:30",
-          "text": "Frankfurt/Main City Centre · Booking No. 9738989042",
-          "type": "transfer"
-        },
-        {
-          "time": "住宿",
-          "text": "Fröschenmoosweg 37, Reichenbach im Kandertal, Bern 3713 · Confirmation HMTF2ZDSYZ",
-          "type": "check-in"
-        }
+        { "time": "12:30", "text": "Frankfurt/Main City Centre · Booking No. 9738989042", "type": "transfer" },
+        { "time": "住宿", "text": "Fröschenmoosweg 37, Reichenbach im Kandertal, Bern 3713 · Confirmation HMTF2ZDSYZ", "type": "check-in" }
       ]
     },
     {
@@ -435,13 +215,7 @@
       "date": "2026-09-30",
       "title": "伯尔尼 · 图恩 · Spiez",
       "locations": ["伯尔尼", "图恩", "Spiez"],
-      "schedule": [
-        {
-          "time": "全天",
-          "text": "Bern city walk、图恩、Spiez",
-          "type": "attraction"
-        }
-      ]
+      "schedule": [{ "time": "全天", "text": "Bern city walk、图恩、Spiez", "type": "attraction" }]
     },
     {
       "id": "day-08",
@@ -450,21 +224,9 @@
       "title": "因特拉肯 · Blausee · Oeschinensee",
       "locations": ["因特拉肯", "Blausee", "Oeschinensee"],
       "schedule": [
-        {
-          "time": "全天",
-          "text": "因特拉肯、Blausee",
-          "type": "attraction"
-        },
-        {
-          "time": "全天",
-          "text": "Oeschinensee 缆车 + 徒步约4小时",
-          "type": "hike"
-        },
-        {
-          "time": "交通",
-          "text": "BLS car transport；缆车票记录：40 STP / half 22.5",
-          "type": "train"
-        }
+        { "time": "全天", "text": "因特拉肯、Blausee", "type": "attraction" },
+        { "time": "全天", "text": "Oeschinensee 缆车 + 徒步约4小时", "type": "hike" },
+        { "time": "交通", "text": "BLS car transport；缆车票记录：40 STP / half 22.5", "type": "train" }
       ]
     },
     {
@@ -473,13 +235,7 @@
       "date": "2026-10-02",
       "title": "马特洪峰",
       "locations": ["Zermatt", "马特洪峰"],
-      "schedule": [
-        {
-          "time": "全天",
-          "text": "马特洪峰（Matterhorn）",
-          "type": "attraction"
-        }
-      ]
+      "schedule": [{ "time": "全天", "text": "马特洪峰（Matterhorn）", "type": "attraction" }]
     },
     {
       "id": "day-10",
@@ -488,21 +244,9 @@
       "title": "Grindelwald · 少女峰地区",
       "locations": ["Grindelwald", "Jungfrau Region"],
       "schedule": [
-        {
-          "time": "全天",
-          "text": "Grindelwald + 雪朗峰 / 少女峰 + Männlichen（门利兴）— Kleine Scheidegg（小夏戴克）徒步半天",
-          "type": "hike"
-        },
-        {
-          "time": "下午/傍晚",
-          "text": "文根、Lauterbrunnen",
-          "type": "attraction"
-        },
-        {
-          "time": "住宿",
-          "text": "Stegmatte 224, Lütschental, Bern 3816 · Confirmation HMYZMXREKE",
-          "type": "check-in"
-        }
+        { "time": "全天", "text": "Grindelwald + 雪朗峰 / 少女峰 + Männlichen（门利兴）— Kleine Scheidegg（小夏戴克）徒步半天", "type": "hike" },
+        { "time": "下午/傍晚", "text": "文根、Lauterbrunnen", "type": "attraction" },
+        { "time": "住宿", "text": "Stegmatte 224, Lütschental, Bern 3816 · Confirmation HMYZMXREKE", "type": "check-in" }
       ]
     },
     {
@@ -511,13 +255,7 @@
       "date": "2026-10-04",
       "title": "卢塞恩 · 龙疆 · Rigi",
       "locations": ["卢塞恩", "龙疆", "Rigi"],
-      "schedule": [
-        {
-          "time": "全天",
-          "text": "卢塞恩 city walk、龙疆、Rigi",
-          "type": "attraction"
-        }
-      ]
+      "schedule": [{ "time": "全天", "text": "卢塞恩 city walk、龙疆、Rigi", "type": "attraction" }]
     },
     {
       "id": "day-12",
@@ -526,21 +264,9 @@
       "title": "少女峰地区 → 巴黎",
       "locations": ["Jungfrau Region", "巴黎"],
       "schedule": [
-        {
-          "time": "20:00",
-          "text": "巴黎 07 Saxe Invalides · 42 Avenue de Saxe, Paris, 75007",
-          "type": "transfer"
-        },
-        {
-          "time": "全天",
-          "text": "埃菲尔铁塔、塞纳河游船、夏乐宫广场",
-          "type": "attraction"
-        },
-        {
-          "time": "住宿",
-          "text": "巴黎",
-          "type": "check-in"
-        }
+        { "time": "20:00", "text": "巴黎 07 Saxe Invalides · 42 Avenue de Saxe, Paris, 75007", "type": "transfer" },
+        { "time": "全天", "text": "埃菲尔铁塔、塞纳河游船、夏乐宫广场", "type": "attraction" },
+        { "time": "住宿", "text": "巴黎", "type": "check-in" }
       ]
     },
     {
@@ -550,16 +276,8 @@
       "title": "巴黎城市游",
       "locations": ["巴黎"],
       "schedule": [
-        {
-          "time": "全天",
-          "text": "奥赛博物馆、凯旋门、香榭丽舍大道、巴黎大皇宫、协和广场、巴黎歌剧院",
-          "type": "attraction"
-        },
-        {
-          "time": "住宿",
-          "text": "巴黎",
-          "type": "check-in"
-        }
+        { "time": "全天", "text": "奥赛博物馆、凯旋门、香榭丽舍大道、巴黎大皇宫、协和广场、巴黎歌剧院", "type": "attraction" },
+        { "time": "住宿", "text": "巴黎", "type": "check-in" }
       ]
     },
     {
@@ -569,21 +287,9 @@
       "title": "巴黎深度游",
       "locations": ["巴黎"],
       "schedule": [
-        {
-          "time": "全天",
-          "text": "罗丹美术馆、巴黎圣母院、卢浮宫、杜乐丽花园、蒙马特高地、圣心大教堂、红磨坊",
-          "type": "attraction"
-        },
-        {
-          "time": "提示",
-          "text": "卢浮宫：原计划提前2天放票；巴黎圣母院：按原计划10月开放安排",
-          "type": "note"
-        },
-        {
-          "time": "住宿",
-          "text": "巴黎",
-          "type": "check-in"
-        }
+        { "time": "全天", "text": "罗丹美术馆、巴黎圣母院、卢浮宫、杜乐丽花园、蒙马特高地、圣心大教堂、红磨坊", "type": "attraction" },
+        { "time": "提示", "text": "卢浮宫：原计划提前2天放票；巴黎圣母院：按原计划10月开放安排", "type": "note" },
+        { "time": "住宿", "text": "巴黎", "type": "check-in" }
       ]
     },
     {
@@ -593,21 +299,9 @@
       "title": "巴黎 → 凡尔赛 → 布鲁塞尔",
       "locations": ["巴黎", "凡尔赛", "布鲁塞尔"],
       "schedule": [
-        {
-          "time": "白天",
-          "text": "凡尔赛宫",
-          "type": "attraction"
-        },
-        {
-          "time": "交通",
-          "text": "巴黎 → 布鲁塞尔（火车）",
-          "type": "train"
-        },
-        {
-          "time": "住宿",
-          "text": "Novotel Brussels City Centre · Rue de la Vierge Noire 32, Brussels City Center, Brussels 1000",
-          "type": "check-in"
-        }
+        { "time": "白天", "text": "凡尔赛宫", "type": "attraction" },
+        { "time": "交通", "text": "巴黎 → 布鲁塞尔（火车）", "type": "train" },
+        { "time": "住宿", "text": "Novotel Brussels City Centre · Rue de la Vierge Noire 32, Brussels City Center, Brussels 1000", "type": "check-in" }
       ]
     },
     {
@@ -616,13 +310,7 @@
       "date": "2026-10-09",
       "title": "布鲁塞尔",
       "locations": ["布鲁塞尔"],
-      "schedule": [
-        {
-          "time": "全天",
-          "text": "布鲁塞尔自由活动",
-          "type": "attraction"
-        }
-      ]
+      "schedule": [{ "time": "全天", "text": "布鲁塞尔自由活动", "type": "attraction" }]
     },
     {
       "id": "day-17",
@@ -630,13 +318,7 @@
       "date": "2026-10-10",
       "title": "布鲁塞尔 → 北京",
       "locations": ["布鲁塞尔", "北京"],
-      "schedule": [
-        {
-          "time": "13:00",
-          "text": "CA0964 · 布鲁塞尔 → 北京首都 T3",
-          "type": "flight"
-        }
-      ]
+      "schedule": [{ "time": "13:00", "text": "CA0964 · 布鲁塞尔 → 北京首都 T3", "type": "flight" }]
     }
   ],
   "places": [],
@@ -658,25 +340,14 @@
     "cityLevelNavigationDisabled": false,
     "navigationPolicy": {
       "noNavigationTypes": ["flight", "note", "rest"],
-      "selfNavigationTypes": [
-        "drive",
-        "return",
-        "transfer",
-        "check-in",
-        "check-out",
-        "restaurant",
-        "attraction",
-        "walk",
-        "hike"
-      ]
+      "selfNavigationTypes": ["drive", "return", "transfer", "check-in", "check-out", "restaurant", "attraction", "walk", "hike"]
     },
     "navigationPlaces": []
   },
   "issuesAndUncertainties": [
-    "Excel 中 9月24日—10月10日为完整主行程；10月11日—10月13日的内容未纳入第一版行程。",
-    "Excel 中部分住宿记录与城市/抵达日期存在错位，第一版按原 Excel 所在日期保留，未擅自调整。",
-    "航班模块已根据同程旅行截图补充：MF8550、MF0843、EY0405、EY0123、CA0964、CA0179。",
-    "截图中的乘客姓名仅保留截图可见部分，未补全未知姓名；如需完整名单请在页面内编辑。"
+    "航班模块已按同程截图补充：MF8550、MF0843、EY0405、EY0123、CA0964、CA0179。",
+    "地图、租车、To Do、记账模块暂未开启，待补数据后再打开。",
+    "flightJourneys 字段不属于本项目 schema，已移除；统一使用 flights 字段。"
   ],
   "map": {
     "schemaVersion": "1.0-lite",
