@@ -7,7 +7,7 @@ const table = { bills: "ledger_bills", travelers: "ledger_travelers", todos: "tr
 const safeId = (value) => String(value || "").trim().slice(0, 160);
 
 // ------------------------------------------------------------------
-// Seed data: Kk / Qz 买单，4 人分账，写入后由网站自动读取
+// Seed data: 4 个同行人，Kk / Qz 买单，所有人分账
 // ------------------------------------------------------------------
 const SEED_TRIP_ID = "thailand-uae-europe-2026";
 const SEED_ORDERED_AT = "2026-09-21T11:00";
@@ -72,6 +72,9 @@ function travelerInitial(name) {
 
 async function seedTrip(db, tripId) {
   const statements = [];
+  // 先清空该 trip 的记账数据，保证不会与旧数据混合
+  statements.push(db.prepare(`DELETE FROM ledger_bills WHERE trip_id = ?`).bind(tripId));
+  statements.push(db.prepare(`DELETE FROM ledger_travelers WHERE trip_id = ?`).bind(tripId));
   for (const traveler of SEED_TRAVELERS) {
     const payload = JSON.stringify({
       id: traveler.id,
@@ -82,8 +85,7 @@ async function seedTrip(db, tripId) {
     statements.push(
       db.prepare(
         `INSERT INTO ledger_travelers (id, trip_id, created_at, updated_at, payload)
-         VALUES (?, ?, ?, ?, ?)
-         ON CONFLICT(trip_id, id) DO NOTHING`
+         VALUES (?, ?, ?, ?, ?)`
       ).bind(traveler.id, tripId, SEED_CREATED_AT, SEED_UPDATED_AT, payload)
     );
   }
@@ -92,8 +94,7 @@ async function seedTrip(db, tripId) {
     statements.push(
       db.prepare(
         `INSERT INTO ledger_bills (id, trip_id, payer, amount, currency, category, note, participants, created_at, updated_at, payload)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-         ON CONFLICT(trip_id, id) DO NOTHING`
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       ).bind(
         bill.id,
         tripId,
