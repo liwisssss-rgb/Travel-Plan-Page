@@ -38,94 +38,73 @@
       { "code": "BE", "nameZh": "比利时", "nameEn": "Belgium" }
     ],
     "primaryDestinationCountries": ["TH", "AE", "DE", "CH", "FR", "BE"],
-    "citiesAndAreas": [
-      "曼谷",
-      "阿布扎比",
-      "法兰克福",
-      "伯尔尼",
-      "因特拉肯",
-      "Zermatt",
-      "少女峰地区",
-      "巴黎",
-      "布鲁塞尔"
-    ],
+    "citiesAndAreas": ["曼谷", "阿布扎比", "法兰克福", "伯尔尼", "因特拉肯", "Zermatt", "少女峰地区", "巴黎", "布鲁塞尔"],
     "routeSummary": "南京 → 厦门 → 曼谷 → 阿布扎比 → 法兰克福 → 瑞士 → 巴黎 → 布鲁塞尔 → 北京",
     "groupSize": 4,
     "heroTitle": "泰国 · 阿布扎比 · 欧洲之旅",
     "heroEyebrow": "THAILAND · UAE · EUROPE · 2026"
   },
+  "flightJourneys": [
+    { "id": "journey-01", "title": "南京 → 厦门 → 曼谷", "date": "2026-09-24" },
+    { "id": "journey-02", "title": "曼谷 → 阿布扎比", "date": "2026-09-27" },
+    { "id": "journey-03", "title": "阿布扎比 → 法兰克福", "date": "2026-09-28" },
+    { "id": "journey-04", "title": "布鲁塞尔 → 北京", "date": "2026-10-10" },
+    { "id": "journey-05", "title": "北京 → 马尼拉", "date": "2026-10-11" }
+  ],
   "flights": [
     {
       "id": "flight-01",
+      "journeyId": "journey-01",
+      "sequence": 1,
       "flightNumber": "MF8550",
-      "airline": "厦门航空",
-      "date": "2026-09-24",
-      "from": "南京禄口 T1",
-      "to": "厦门高崎 T3",
-      "departure": { "time": "18:30", "utcOffset": "+08:00" },
-      "arrival": { "time": "20:20", "utcOffset": "+08:00" },
-      "duration": "1h50m",
-      "cabin": "经济舱"
+      "airline": { "nameZh": "厦门航空", "name": "XiamenAir" },
+      "departure": { "airportCode": "NKG", "airport": "南京禄口 T1", "date": "2026-09-24", "time": "18:30", "utcOffset": "+08:00" },
+      "arrival": { "airportCode": "XMN", "airport": "厦门高崎 T3", "date": "2026-09-24", "time": "20:20", "utcOffset": "+08:00" }
     },
     {
       "id": "flight-02",
+      "journeyId": "journey-01",
+      "sequence": 2,
       "flightNumber": "MF0843",
-      "airline": "厦门航空",
-      "date": "2026-09-24",
-      "from": "厦门高崎 T3",
-      "to": "曼谷素万那普",
-      "departure": { "time": "22:20", "utcOffset": "+08:00" },
-      "arrival": { "time": "00:50", "utcOffset": "+07:00", "arriveDate": "2026-09-25" },
-      "duration": "3h30m",
-      "cabin": "经济舱"
+      "airline": { "nameZh": "厦门航空", "name": "XiamenAir" },
+      "departure": { "airportCode": "XMN", "airport": "厦门高崎 T3", "date": "2026-09-24", "time": "22:20", "utcOffset": "+08:00" },
+      "arrival": { "airportCode": "BKK", "airport": "曼谷素万那普", "date": "2026-09-25", "time": "00:50", "utcOffset": "+07:00" }
     },
     {
       "id": "flight-03",
+      "journeyId": "journey-02",
+      "sequence": 1,
       "flightNumber": "EY0405",
-      "airline": "阿提哈德航空",
-      "date": "2026-09-27",
-      "from": "曼谷素万那普",
-      "to": "阿布扎比扎耶德 A",
-      "departure": { "time": "15:55", "utcOffset": "+07:00" },
-      "arrival": { "time": "19:10", "utcOffset": "+04:00" },
-      "duration": "6h15m",
-      "cabin": "经济舱"
+      "airline": { "nameZh": "阿提哈德航空", "name": "Etihad Airways" },
+      "departure": { "airportCode": "BKK", "airport": "曼谷素万那普", "date": "2026-09-27", "time": "15:55", "utcOffset": "+07:00" },
+      "arrival": { "airportCode": "AUH", "airport": "阿布扎比扎耶德 A", "date": "2026-09-27", "time": "19:10", "utcOffset": "+04:00" }
     },
     {
       "id": "flight-04",
+      "journeyId": "journey-03",
+      "sequence": 1,
       "flightNumber": "EY0123",
-      "airline": "阿提哈德航空",
-      "date": "2026-09-28",
-      "from": "阿布扎比扎耶德 A",
-      "to": "法兰克福 T3",
-      "departure": { "time": "14:20", "utcOffset": "+04:00" },
-      "arrival": { "time": "19:05", "utcOffset": "+02:00" },
-      "duration": "6h45m",
-      "cabin": "经济舱"
+      "airline": { "nameZh": "阿提哈德航空", "name": "Etihad Airways" },
+      "departure": { "airportCode": "AUH", "airport": "阿布扎比扎耶德 A", "date": "2026-09-28", "time": "14:20", "utcOffset": "+04:00" },
+      "arrival": { "airportCode": "FRA", "airport": "法兰克福 T3", "date": "2026-09-28", "time": "19:05", "utcOffset": "+02:00" }
     },
     {
       "id": "flight-05",
+      "journeyId": "journey-04",
+      "sequence": 1,
       "flightNumber": "CA0964",
-      "airline": "中国国航",
-      "date": "2026-10-10",
-      "from": "布鲁塞尔",
-      "to": "北京首都 T3",
-      "departure": { "time": "13:00", "utcOffset": "+02:00" },
-      "arrival": { "time": "04:45", "utcOffset": "+08:00", "arriveDate": "2026-10-11" },
-      "duration": "9h45m",
-      "cabin": "经济舱"
+      "airline": { "nameZh": "中国国航", "name": "Air China" },
+      "departure": { "airportCode": "BRU", "airport": "布鲁塞尔", "date": "2026-10-10", "time": "13:00", "utcOffset": "+02:00" },
+      "arrival": { "airportCode": "PEK", "airport": "北京首都 T3", "date": "2026-10-11", "time": "04:45", "utcOffset": "+08:00" }
     },
     {
       "id": "flight-06",
+      "journeyId": "journey-05",
+      "sequence": 1,
       "flightNumber": "CA0179",
-      "airline": "中国国航",
-      "date": "2026-10-11",
-      "from": "北京首都 T3",
-      "to": "马尼拉尼诺伊阿基诺",
-      "departure": { "time": "19:00", "utcOffset": "+08:00" },
-      "arrival": { "time": "00:20", "utcOffset": "+08:00", "arriveDate": "2026-10-12" },
-      "duration": "5h20m",
-      "cabin": "经济舱"
+      "airline": { "nameZh": "中国国航", "name": "Air China" },
+      "departure": { "airportCode": "PEK", "airport": "北京首都 T3", "date": "2026-10-11", "time": "19:00", "utcOffset": "+08:00" },
+      "arrival": { "airportCode": "MNL", "airport": "马尼拉尼诺伊阿基诺", "date": "2026-10-12", "time": "00:20", "utcOffset": "+08:00" }
     }
   ],
   "accommodations": [],
@@ -139,10 +118,7 @@
   },
   "days": [
     {
-      "id": "day-01",
-      "day": 1,
-      "date": "2026-09-24",
-      "title": "抵达曼谷前段行程",
+      "id": "day-01", "day": 1, "date": "2026-09-24", "title": "抵达曼谷前段行程",
       "locations": ["南京", "厦门", "曼谷"],
       "schedule": [
         { "time": "18:30", "text": "MF8550 · 南京禄口 T1 → 厦门高崎 T3", "type": "flight" },
@@ -151,10 +127,7 @@
       ]
     },
     {
-      "id": "day-02",
-      "day": 2,
-      "date": "2026-09-25",
-      "title": "曼谷经典一日游",
+      "id": "day-02", "day": 2, "date": "2026-09-25", "title": "曼谷经典一日游",
       "locations": ["曼谷"],
       "schedule": [
         { "time": "全天", "text": "大皇宫（含卧佛寺、玉佛寺）、水上市场、美功铁道市场、水门寺", "type": "attraction" },
@@ -163,10 +136,7 @@
       ]
     },
     {
-      "id": "day-03",
-      "day": 3,
-      "date": "2026-09-26",
-      "title": "曼谷城市体验",
+      "id": "day-03", "day": 3, "date": "2026-09-26", "title": "曼谷城市体验",
       "locations": ["曼谷"],
       "schedule": [
         { "time": "白天", "text": "射击体验、ICONSIAM、CentralWorld、Siam Square", "type": "attraction" },
@@ -174,10 +144,7 @@
       ]
     },
     {
-      "id": "day-04",
-      "day": 4,
-      "date": "2026-09-27",
-      "title": "曼谷 → 阿布扎比",
+      "id": "day-04", "day": 4, "date": "2026-09-27", "title": "曼谷 → 阿布扎比",
       "locations": ["曼谷", "阿布扎比"],
       "schedule": [
         { "time": "15:55", "text": "EY0405 · 曼谷素万那普 → 阿布扎比扎耶德 A", "type": "flight" },
@@ -186,10 +153,7 @@
       ]
     },
     {
-      "id": "day-05",
-      "day": 5,
-      "date": "2026-09-28",
-      "title": "阿布扎比 → 法兰克福",
+      "id": "day-05", "day": 5, "date": "2026-09-28", "title": "阿布扎比 → 法兰克福",
       "locations": ["阿布扎比", "法兰克福"],
       "schedule": [
         { "time": "14:20", "text": "EY0123 · 阿布扎比扎耶德 A → 法兰克福 T3", "type": "flight" },
@@ -199,10 +163,7 @@
       ]
     },
     {
-      "id": "day-06",
-      "day": 6,
-      "date": "2026-09-29",
-      "title": "法兰克福",
+      "id": "day-06", "day": 6, "date": "2026-09-29", "title": "法兰克福",
       "locations": ["法兰克福"],
       "schedule": [
         { "time": "12:30", "text": "Frankfurt/Main City Centre · Booking No. 9738989042", "type": "transfer" },
@@ -210,18 +171,12 @@
       ]
     },
     {
-      "id": "day-07",
-      "day": 7,
-      "date": "2026-09-30",
-      "title": "伯尔尼 · 图恩 · Spiez",
+      "id": "day-07", "day": 7, "date": "2026-09-30", "title": "伯尔尼 · 图恩 · Spiez",
       "locations": ["伯尔尼", "图恩", "Spiez"],
       "schedule": [{ "time": "全天", "text": "Bern city walk、图恩、Spiez", "type": "attraction" }]
     },
     {
-      "id": "day-08",
-      "day": 8,
-      "date": "2026-10-01",
-      "title": "因特拉肯 · Blausee · Oeschinensee",
+      "id": "day-08", "day": 8, "date": "2026-10-01", "title": "因特拉肯 · Blausee · Oeschinensee",
       "locations": ["因特拉肯", "Blausee", "Oeschinensee"],
       "schedule": [
         { "time": "全天", "text": "因特拉肯、Blausee", "type": "attraction" },
@@ -230,18 +185,12 @@
       ]
     },
     {
-      "id": "day-09",
-      "day": 9,
-      "date": "2026-10-02",
-      "title": "马特洪峰",
+      "id": "day-09", "day": 9, "date": "2026-10-02", "title": "马特洪峰",
       "locations": ["Zermatt", "马特洪峰"],
       "schedule": [{ "time": "全天", "text": "马特洪峰（Matterhorn）", "type": "attraction" }]
     },
     {
-      "id": "day-10",
-      "day": 10,
-      "date": "2026-10-03",
-      "title": "Grindelwald · 少女峰地区",
+      "id": "day-10", "day": 10, "date": "2026-10-03", "title": "Grindelwald · 少女峰地区",
       "locations": ["Grindelwald", "Jungfrau Region"],
       "schedule": [
         { "time": "全天", "text": "Grindelwald + 雪朗峰 / 少女峰 + Männlichen（门利兴）— Kleine Scheidegg（小夏戴克）徒步半天", "type": "hike" },
@@ -250,18 +199,12 @@
       ]
     },
     {
-      "id": "day-11",
-      "day": 11,
-      "date": "2026-10-04",
-      "title": "卢塞恩 · 龙疆 · Rigi",
+      "id": "day-11", "day": 11, "date": "2026-10-04", "title": "卢塞恩 · 龙疆 · Rigi",
       "locations": ["卢塞恩", "龙疆", "Rigi"],
       "schedule": [{ "time": "全天", "text": "卢塞恩 city walk、龙疆、Rigi", "type": "attraction" }]
     },
     {
-      "id": "day-12",
-      "day": 12,
-      "date": "2026-10-05",
-      "title": "少女峰地区 → 巴黎",
+      "id": "day-12", "day": 12, "date": "2026-10-05", "title": "少女峰地区 → 巴黎",
       "locations": ["Jungfrau Region", "巴黎"],
       "schedule": [
         { "time": "20:00", "text": "巴黎 07 Saxe Invalides · 42 Avenue de Saxe, Paris, 75007", "type": "transfer" },
@@ -270,10 +213,7 @@
       ]
     },
     {
-      "id": "day-13",
-      "day": 13,
-      "date": "2026-10-06",
-      "title": "巴黎城市游",
+      "id": "day-13", "day": 13, "date": "2026-10-06", "title": "巴黎城市游",
       "locations": ["巴黎"],
       "schedule": [
         { "time": "全天", "text": "奥赛博物馆、凯旋门、香榭丽舍大道、巴黎大皇宫、协和广场、巴黎歌剧院", "type": "attraction" },
@@ -281,10 +221,7 @@
       ]
     },
     {
-      "id": "day-14",
-      "day": 14,
-      "date": "2026-10-07",
-      "title": "巴黎深度游",
+      "id": "day-14", "day": 14, "date": "2026-10-07", "title": "巴黎深度游",
       "locations": ["巴黎"],
       "schedule": [
         { "time": "全天", "text": "罗丹美术馆、巴黎圣母院、卢浮宫、杜乐丽花园、蒙马特高地、圣心大教堂、红磨坊", "type": "attraction" },
@@ -293,10 +230,7 @@
       ]
     },
     {
-      "id": "day-15",
-      "day": 15,
-      "date": "2026-10-08",
-      "title": "巴黎 → 凡尔赛 → 布鲁塞尔",
+      "id": "day-15", "day": 15, "date": "2026-10-08", "title": "巴黎 → 凡尔赛 → 布鲁塞尔",
       "locations": ["巴黎", "凡尔赛", "布鲁塞尔"],
       "schedule": [
         { "time": "白天", "text": "凡尔赛宫", "type": "attraction" },
@@ -305,18 +239,12 @@
       ]
     },
     {
-      "id": "day-16",
-      "day": 16,
-      "date": "2026-10-09",
-      "title": "布鲁塞尔",
+      "id": "day-16", "day": 16, "date": "2026-10-09", "title": "布鲁塞尔",
       "locations": ["布鲁塞尔"],
       "schedule": [{ "time": "全天", "text": "布鲁塞尔自由活动", "type": "attraction" }]
     },
     {
-      "id": "day-17",
-      "day": 17,
-      "date": "2026-10-10",
-      "title": "布鲁塞尔 → 北京",
+      "id": "day-17", "day": 17, "date": "2026-10-10", "title": "布鲁塞尔 → 北京",
       "locations": ["布鲁塞尔", "北京"],
       "schedule": [{ "time": "13:00", "text": "CA0964 · 布鲁塞尔 → 北京首都 T3", "type": "flight" }]
     }
@@ -336,7 +264,7 @@
   },
   "mapLinks": {
     "providedGoogleMapsLinks": [],
-    "note": "第一版先以每日行程为主，暂不启用模板路线地图。",
+    "note": "地图模块暂未开启。",
     "cityLevelNavigationDisabled": false,
     "navigationPolicy": {
       "noNavigationTypes": ["flight", "note", "rest"],
@@ -347,7 +275,7 @@
   "issuesAndUncertainties": [
     "航班模块已按同程截图补充：MF8550、MF0843、EY0405、EY0123、CA0964、CA0179。",
     "地图、租车、To Do、记账模块暂未开启，待补数据后再打开。",
-    "flightJourneys 字段不属于本项目 schema，已移除；统一使用 flights 字段。"
+    "validate-lite.mjs 仅以 flightJourneys 判断航班模块是否有数据，flights 通过 journeyId 与其关联。"
   ],
   "map": {
     "schemaVersion": "1.0-lite",
