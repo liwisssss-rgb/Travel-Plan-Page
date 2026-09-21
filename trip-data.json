@@ -14,7 +14,7 @@
 "language": "zh-CN",
 "persistence": {
   "mode": "d1",
-  "collections": ["todos", "ledger"]
+  "sharedCollections": ["todos", "ledger"]
     }
   },
   "metadata": {
