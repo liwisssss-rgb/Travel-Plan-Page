@@ -304,19 +304,14 @@
   "schemaVersion": "1.0-lite",
   "mapMode": "template-auto",
   "templateId": "auto",
-  "regions": [
-    {
-      "id": "asia",
-      "label": "亚洲段 · 第 1–5 天",
-      "days": [1, 2, 3, 4, 5],
-      "canvas": { "width": 1448, "height": 1086 },
-      "projection": {
-        "padding": 74,
-        "bounds": { "west": 50, "south": 10, "east": 122, "north": 36 }
-      },
-      "baseImage": "assets/maps/world-base.png",
-      "heading": { "text": "亚洲段 · 南京 → 曼谷 → 阿布扎比", "x": 33, "y": 105 },
-      "legend": { "x": 35, "y": 168, "gap": 43 },
+  "canvas": { "width": 1448, "height": 1086 },
+  "projection": {
+    "padding": 74,
+    "bounds": { "west": 0, "south": 10, "east": 122, "north": 55 }
+  },
+  "baseImage": "assets/maps/world-base.png",
+  "heading": { "text": "泰国 · 阿布扎比 · 欧洲之旅", "x": 33, "y": 105 },
+  "legend": { "x": 35, "y": 168, "gap": 43 },
       "places": [
         { "id": "cn-nanjing", "geo": { "lat": 32.0603, "lng": 118.7969 }, "label": "南京" },
         { "id": "cn-xiamen", "geo": { "lat": 24.4798, "lng": 118.0894 }, "label": "厦门" },
